@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/player.png" type="Texture" id=1]
 [ext_resource path="res://StateMachine/Jumping.gd" type="Script" id=2]
@@ -9,152 +9,111 @@
 [ext_resource path="res://StateMachine/Falling.gd" type="Script" id=7]
 [ext_resource path="res://StateMachine/Moving_and_Jumping.gd" type="Script" id=8]
 [ext_resource path="res://Player/Player.gd" type="Script" id=9]
-[ext_resource path="res://StateMachine/WallJump.gd" type="Script" id=10]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=22]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 70 )
+region = Rect2( 0, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=30]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 70 )
+region = Rect2( 448, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=31]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 70 )
+region = Rect2( 512, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=32]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 32, 70 )
+region = Rect2( 576, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 128, 0, 32, 70 )
+region = Rect2( 64, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 160, 0, 32, 70 )
+region = Rect2( 128, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 32, 70 )
+region = Rect2( 192, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 224, 0, 32, 70 )
+region = Rect2( 256, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 256, 0, 32, 70 )
+region = Rect2( 320, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=29]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 288, 0, 32, 70 )
+region = Rect2( 384, 0, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=33]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 224, 70, 32, 70 )
+region = Rect2( 448, 140, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=34]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 256, 70, 32, 70 )
+region = Rect2( 512, 140, 64, 140 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=35]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 288, 70, 32, 70 )
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 256, 70, 32, 70 )
+region = Rect2( 576, 140, 64, 140 )
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
+"frames": [ SubResource( 22 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"loop": false,
+"name": "Jumping",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "Moving",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
 "loop": false,
-"name": "Jumping",
+"name": "Falling",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "Attacking",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": false,
-"name": "Falling",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 14 ) ],
-"loop": true,
-"name": "WallJump",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 8, 23 )
 
-[sub_resource type="Gradient" id=17]
-offsets = PoolRealArray( 0, 0.0296296, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.8, 0.8, 0.8, 1, 0.204773, 0.567873, 0.859375, 1 )
-
-[sub_resource type="GradientTexture" id=18]
-gradient = SubResource( 17 )
-
-[sub_resource type="Curve" id=19]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.405682 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=20]
-curve = SubResource( 19 )
-
-[sub_resource type="ParticlesMaterial" id=21]
-lifetime_randomness = 0.52
-emission_shape = 1
-emission_sphere_radius = 3.95
-flag_disable_z = true
-spread = 47.07
-gravity = Vector3( -100, 0, 0 )
-initial_velocity = 68.96
-initial_velocity_random = 0.56
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 9.2
-damping = 3.45
-scale = 1.5
-scale_random = 0.6
-scale_curve = SubResource( 20 )
-color_ramp = SubResource( 18 )
-
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 200, 200 )
+scale = Vector2( 2, 2 )
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 15 )
-animation = "WallJump"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -222,18 +181,4 @@ script = ExtResource( 5 )
 wait_time = 0.2
 one_shot = true
 
-[node name="WallJump" type="Node" parent="StateMachine"]
-script = ExtResource( 10 )
-
-[node name="Timer" type="Timer" parent="StateMachine/WallJump"]
-wait_time = 4.0
-one_shot = true
-
-[node name="Sweat" type="Particles2D" parent="StateMachine/WallJump"]
-rotation = -1.62141
-emitting = false
-explosiveness = 0.25
-randomness = 0.85
-process_material = SubResource( 21 )
 [connection signal="timeout" from="StateMachine/Coyote/Timer" to="StateMachine/Coyote" method="_on_Timer_timeout"]
-[connection signal="timeout" from="StateMachine/WallJump/Timer" to="StateMachine/WallJump" method="_on_Timer_timeout"]

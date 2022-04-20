@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var SM = $StateMachine
+onready var overlay = get_node("/root/Game/UI/Overlay")
 
 var velocity = Vector2.ZERO
 var jump_power = Vector2.ZERO
@@ -21,7 +22,6 @@ var moving = false
 var is_jumping = false
 var double_jumped = false
 var should_direction_flip = true # wether or not player controls (left/right) can flip the player sprite
-
 
 func _physics_process(_delta):
 	velocity.x = clamp(velocity.x,-max_move,max_move)
@@ -57,28 +57,17 @@ func is_on_floor():
 	var fl = $Floor.get_children()
 	for f in fl:
 		if f.is_colliding():
+			overlay.hide()
 			return true
 	return false
-
-func is_on_right_wall():
-	if $Wall/Right.is_colliding():
-		return true
-	return false
-
-func is_on_left_wall():
-	if $Wall/Right.is_colliding():
-		return true
-	return false
-
-func get_right_collider():
-	return $Wall/Right.get_collider()
-
-func get_left_collider():
-	return $Wall/Left.get_collider()
 	
 func set_wall_raycasts(is_enabled):
 	$Wall/Left.enabled = is_enabled
 	$Wall/Right.enabled = is_enabled
+
+func do_damage(d):
+	overlay.show()
+	queue_free()
 
 func die():
 	queue_free()
